@@ -1,0 +1,22 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
+    <persistence-unit name="warehousePU">
+        <!-- List all your entities here -->
+        <class>com.capstone.warehouse.entity.User</class>
+        <class>com.capstone.warehouse.entity.Product</class>
+        <class>com.capstone.warehouse.entity.Category</class>
+        <class>com.capstone.warehouse.entity.Supplier</class>
+        <class>com.capstone.warehouse.entity.Inventory</class>
+        <class>com.capstone.warehouse.entity.Order</class>
+        <class>com.capstone.warehouse.entity.OrderItem</class>
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/warehouse_db"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="password"/>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
