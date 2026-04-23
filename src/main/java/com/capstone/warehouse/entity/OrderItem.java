@@ -1,5 +1,7 @@
 package com.capstone.warehouse.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 import java.math.BigDecimal;
@@ -20,6 +22,7 @@ public class OrderItem {
     private BigDecimal priceAtTime;
 
     // Many items → one order
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;

@@ -1,5 +1,7 @@
 package com.capstone.warehouse.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
@@ -22,6 +24,7 @@ public class Inventory {
     @Column(name = "last_updated")
     private LocalDateTime lastUpdated;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToOne
     @JoinColumn(name = "product_id", nullable = false, unique = true)
     private Product product;

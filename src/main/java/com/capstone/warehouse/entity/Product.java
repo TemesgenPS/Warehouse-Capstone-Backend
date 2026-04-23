@@ -1,5 +1,6 @@
 package com.capstone.warehouse.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import java.math.BigDecimal;
@@ -40,6 +41,7 @@ public class Product {
     private Category category;
 
     // One-to-one with inventory
+    @JsonIgnore
     @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
     private Inventory inventory;
 }
